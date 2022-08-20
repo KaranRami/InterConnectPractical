@@ -1,0 +1,36 @@
+﻿<Shell
+    x:Class="InterConnectPractical.AppShell"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:resources="clr-namespace:InterConnectPractical.Resources.Labels"
+    xmlns:views="clr-namespace:InterConnectPractical.Views">
+
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        <Tab Title="{x:Static resources:AppTitles.PageTitleHome}">
+            <Tab.Icon>
+                <FontImageSource
+                    FontFamily="FAS"
+                    Glyph="{StaticResource IconHome}"
+                    Color="{DynamicResource BarForegtoundColor}" />
+            </Tab.Icon>
+            <ShellContent Title="{x:Static resources:AppTitles.PageTitleDashboard}" ContentTemplate="{DataTemplate views:DashboardPage}" />
+        </Tab>
+
+        <ShellContent Title="{x:Static resources:AppTitles.PageTitleEventsAndHolidays}" ContentTemplate="{DataTemplate views:EventsAndHolidaysPage}">
+            <ShellContent.Icon>
+                <FontImageSource
+                    FontFamily="FAS"
+                    Glyph="{StaticResource IconAnnouncement}"
+                    Color="{DynamicResource BarForegtoundColor}" />
+            </ShellContent.Icon>
+        </ShellContent>
+        <ShellContent Title="{x:Static resources:AppTitles.PageTitleNews}" ContentTemplate="{DataTemplate views:NewsPage}">
+            <ShellContent.Icon>
+                <FontImageSource
+                    FontFamily="FAS"
+                    Glyph="{StaticResource IconNews}"
+                    Color="{DynamicResource BarForegtoundColor}" />
+            </ShellContent.Icon>
+        </ShellContent>
+    </FlyoutItem>
+</Shell>

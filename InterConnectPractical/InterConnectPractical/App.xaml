@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application
+    x:Class="InterConnectPractical.App"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!--#region FontIcon-->
+            <x:String x:Key="IconBack">&#xf060;</x:String>
+            <x:String x:Key="IconHome">&#xf015;</x:String>
+            <x:String x:Key="IconAnnouncement">&#xf130;</x:String>
+            <x:String x:Key="IconNews">&#xf1ea;</x:String>
+            <x:String x:Key="IconChat">&#xf4ad;</x:String>
+            <x:String x:Key="IconNotification">&#xf0f3;</x:String>
+            <x:String x:Key="IconUser">&#xf2bd;</x:String>
+            <!--#endregion-->
+
+            <!--#region Colors-->
+            <Color x:Key="PrimaryTextColor">#000000</Color>
+            <Color x:Key="SecondaryTextColor">#999999</Color>
+
+            <Color x:Key="PageBackGroundColor">#F5F5F5</Color>
+            <Color x:Key="ViewBackGroundColor">#FFFFFF</Color>
+
+            <Color x:Key="BarBackgroundColor">#FFFFFF</Color>
+            <Color x:Key="BarForegtoundColor">#2880c6</Color>
+            <!--#endregion-->
+
+            <!--#region Elements-->
+            <Style ApplyToDerivedTypes="True" TargetType="Shell">
+                <Setter Property="BackgroundColor" Value="{DynamicResource BarBackgroundColor}" />
+                <Setter Property="ForegroundColor" Value="{DynamicResource BarForegtoundColor}" />
+                <Setter Property="TitleColor" Value="{DynamicResource BarForegtoundColor}" />
+                <Setter Property="NavBarHasShadow" Value="False" />
+            </Style>
+
+            <Style ApplyToDerivedTypes="True" TargetType="ContentPage">
+                <Setter Property="BackgroundColor" Value="{DynamicResource PageBackGroundColor}" />
+            </Style>
+
+            <Style ApplyToDerivedTypes="True" TargetType="ContentView">
+                <Setter Property="BackgroundColor" Value="{DynamicResource ViewBackGroundColor}" />
+            </Style>
+
+            <Style ApplyToDerivedTypes="True" TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}" />
+            </Style>
+
+            <Style x:Key="SecondaryLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource SecondaryTextColor}" />
+            </Style>
+
+            <Style x:Key="BarTitleLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource BarForegtoundColor}" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="FontSize" Value="20" />
+            </Style>
+
+            <Style x:Key="IconLabel" TargetType="Label">
+                <Setter Property="FontFamily" Value="FAS" />
+            </Style>
+            <!--#endregion-->
+        </ResourceDictionary>
+
+
+
+    </Application.Resources>
+</Application>

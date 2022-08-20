@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="InterConnectPractical.Views.NewsDetailsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:InterConnectPractical.Converters"
+    xmlns:resources="clr-namespace:InterConnectPractical.Resources.Labels"
+    xmlns:views="clr-namespace:InterConnectPractical.Views"
+    Title="{x:Static resources:AppTitles.PageTitleNews}"
+    Padding="20"
+    Shell.TabBarIsVisible="False">
+    <Shell.TitleView>
+        <views:TitleView />
+    </Shell.TitleView>
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior>
+            <BackButtonBehavior.IconOverride>
+                <FontImageSource FontFamily="FAS" Glyph="{StaticResource IconBack}" />
+            </BackButtonBehavior.IconOverride>
+        </BackButtonBehavior>
+    </Shell.BackButtonBehavior>
+    <ContentPage.Content>
+        <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+            <Frame
+                Padding="0"
+                CornerRadius="0"
+                VerticalOptions="Start">
+                <StackLayout Padding="10" Spacing="10">
+                    <Image Source="{Binding NewsArticle.ImageURL}" />
+                    <Label
+                        FontAttributes="Bold"
+                        MaxLines="2"
+                        Text="{Binding NewsArticle.Title}">
+                        <Label.FlowDirection>
+                            <Binding Path="IsRtlFlowDirection">
+                                <Binding.Converter>
+                                    <converters:BoolToObjectConverter
+                                        x:TypeArguments="FlowDirection"
+                                        FalseObject="LeftToRight"
+                                        TrueObject="RightToLeft" />
+                                </Binding.Converter>
+                            </Binding>
+                        </Label.FlowDirection>
+                    </Label>
+                    <Label Style="{StaticResource SecondaryLabel}" Text="{Binding NewsArticle.Date, StringFormat='{0:dd-MMM-yyyy}'}" />
+
+                    <Label Text="{Binding NewsArticle.Description}">
+                        <Label.FlowDirection>
+                            <Binding Path="IsRtlFlowDirection">
+                                <Binding.Converter>
+                                    <converters:BoolToObjectConverter
+                                        x:TypeArguments="FlowDirection"
+                                        FalseObject="LeftToRight"
+                                        TrueObject="RightToLeft" />
+                                </Binding.Converter>
+                            </Binding>
+                        </Label.FlowDirection>
+                    </Label>
+
+                </StackLayout>
+            </Frame>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

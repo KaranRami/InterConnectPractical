@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="InterConnectPractical.Views.DashboardPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:InterConnectPractical.Converters"
+    xmlns:resources="clr-namespace:InterConnectPractical.Resources.Labels"
+    xmlns:views="clr-namespace:InterConnectPractical.Views"
+    x:Name="pageDashboard"
+    Title="{x:Static resources:AppTitles.PageTitleDashboard}">
+    <Shell.TitleView>
+        <views:TitleView />
+    </Shell.TitleView>
+    <ContentPage.Content>
+        <CollectionView ItemSizingStrategy="MeasureFirstItem" ItemsSource="{Binding NewsArticles}">
+            <CollectionView.Header>
+                <Label
+                    Padding="10,20,10,10"
+                    FontAttributes="Bold"
+                    Style="{StaticResource SecondaryLabel}"
+                    Text="{x:Static resources:AppTitles.ListHeaderNewsAndEvents}" />
+            </CollectionView.Header>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid
+                        Padding="20,10"
+                        ColumnDefinitions="100,*"
+                        RowDefinitions="Auto,Auto,Auto"
+                        RowSpacing="0">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Path=BindingContext.NewsArticleSelectedCommand, Source={x:Reference pageDashboard}}" CommandParameter="{Binding .}" />
+                        </Grid.GestureRecognizers>
+                        <Image Grid.RowSpan="3" Source="{Binding ImageURL}" />
+                        <Label
+                            Grid.Column="1"
+                            FontAttributes="Bold"
+                            LineBreakMode="TailTruncation"
+                            MaxLines="1"
+                            Text="{Binding Title}">
+                            <Label.FlowDirection>
+                                <Binding Path="IsRtlFlowDirection">
+                                    <Binding.Converter>
+                                        <converters:BoolToObjectConverter
+                                            x:TypeArguments="FlowDirection"
+                                            FalseObject="LeftToRight"
+                                            TrueObject="RightToLeft" />
+                                    </Binding.Converter>
+                                </Binding>
+                            </Label.FlowDirection>
+                        </Label>
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            LineBreakMode="WordWrap"
+                            MaxLines="2"
+                            Text="{Binding Description}">
+                            <Label.FlowDirection>
+                                <Binding Path="IsRtlFlowDirection">
+                                    <Binding.Converter>
+                                        <converters:BoolToObjectConverter
+                                            x:TypeArguments="FlowDirection"
+                                            FalseObject="LeftToRight"
+                                            TrueObject="RightToLeft" />
+                                    </Binding.Converter>
+                                </Binding>
+                            </Label.FlowDirection>
+                        </Label>
+                        <Label
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Style="{StaticResource SecondaryLabel}"
+                            Text="{Binding Date, StringFormat='{0:dd-MMM-yyyy}'}" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="InterConnectPractical.Views.NewsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:resources="clr-namespace:InterConnectPractical.Resources.Labels"
+    xmlns:views="clr-namespace:InterConnectPractical.Views"
+    Title="{x:Static resources:AppTitles.PageTitleNews}">
+    <Shell.TitleView>
+        <views:TitleView />
+    </Shell.TitleView>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label
+                HorizontalOptions="CenterAndExpand"
+                Text="Welcome to NewsPage!"
+                VerticalOptions="CenterAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
